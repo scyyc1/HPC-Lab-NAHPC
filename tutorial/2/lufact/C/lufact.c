@@ -52,6 +52,7 @@ void main(void)
   // ---------------------------------------------------my implementation-----------------------------
   identificate(n, l);
   LUfact(n, a, l, u);
+  // ---------------------------------------------------my implementation-----------------------------
 
   printf("\nl\n\n");
   matprint(n, l);
@@ -250,7 +251,7 @@ void LUfact(int n, float  A[NMAX][NMAX], float L[NMAX][NMAX], float U[NMAX][NMAX
                 sum+=(L[i][k]*U[k][j]);
             }
             U[i][j]=A[i][j]-sum;
-            printf("%d %d\n", sum, A[i][j]);
+            printf("sum: %d! A[%d][%d]: %d\n", sum, i, j, A[i][j]);
         }
 
         // for(int i=j;i<n;i++){W
