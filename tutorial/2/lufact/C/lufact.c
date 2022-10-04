@@ -250,6 +250,7 @@ void LUfact(int n, float  A[NMAX][NMAX], float L[NMAX][NMAX], float U[NMAX][NMAX
                 sum+=(L[i][k]*U[k][j]);
             }
             U[i][j]=A[i][j]-sum;
+            printf("%d %d/n", sum, A[i][j]);
         }
 
         // for(int i=j;i<n;i++){W
