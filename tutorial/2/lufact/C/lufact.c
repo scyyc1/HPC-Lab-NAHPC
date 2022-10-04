@@ -14,7 +14,7 @@ void matgen(int n, float a[NMAX][NMAX], float b[NMAX]);
 // My implementation:
 void identificate(int n, float M[NMAX][NMAX]);
 void setZero(int n, float M[NMAX][NMAX]);
-void LUfact(int n, A[NMAX][NMAX], L[NMAX][NMAX], U[NMAX][NMAX]);
+void LUfact(int n, float A[NMAX][NMAX], float L[NMAX][NMAX], float U[NMAX][NMAX]);
 
 
 void main(void)
