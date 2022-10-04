@@ -245,7 +245,7 @@ void setZero(int n, float M[NMAX][NMAX]) {
 
 void LUfact(int n, float  A[NMAX][NMAX], float L[NMAX][NMAX], float U[NMAX][NMAX]) {
     for(int j=0;j<n;j++){
-        for(int i=0;i<j;i++){
+        for(int i=0;i<=j;i++){
             float sum=0.0;
             for(int k=0;k<i-1;k++){
                 sum+=(L[i][k]*U[k][j]);
@@ -254,12 +254,12 @@ void LUfact(int n, float  A[NMAX][NMAX], float L[NMAX][NMAX], float U[NMAX][NMAX
             printf("sum: %d! A[%d][%d]: %d\n", sum, i, j, A[i][j]);
         }
 
-        // for(int i=j;i<n;i++){W
-        //     float sum=0.0;
-        //     for(int k=0;k<j-1;k++){
-        //         sum+=(L[i][k]*U[k][j]);
-        //     }
-        //     L[i][j]=(A[i][j]-sum)/U[j][j];
-        // }
+        for(int i=j+1;i<n;i++){W
+            float sum=0.0;
+            for(int k=0;k<j-1;k++){
+                sum+=(L[i][k]*U[k][j]);
+            }
+            L[i][j]=(A[i][j]-sum)/U[j][j];
+        }
     }
 }
