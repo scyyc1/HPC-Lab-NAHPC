@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <math.h>
 
-#include <LU.h>
-
 #define NMAX 100
 
 void matprint(int n, float a[NMAX][NMAX]);
