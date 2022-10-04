@@ -1,0 +1,9 @@
+Cirrus SAFE
+账号：s2439620@ed.ac.uk
+密码：scyyc1-nottingham
+地址：https://safe.epcc.ed.ac.uk/
+
+Cirrus
+账号：s2439620
+密码：CC1211754584cc/
+passphrase: CC1211754584cc/
