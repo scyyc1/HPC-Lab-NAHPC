@@ -247,7 +247,7 @@ void LUfact(int n, float  A[NMAX][NMAX], float L[NMAX][NMAX], float U[NMAX][NMAX
     for(int j=0;j<n;j++){
         for(int i=0;i<=j;i++){
             float sum=0.0;
-            for(int k=0;k<i-2;k++){
+            for(int k=0;k<i-1;k++){
                 sum+=(L[i][k]*U[k][j]);
             }
             U[i][j]=A[i][j]-sum;
@@ -255,7 +255,7 @@ void LUfact(int n, float  A[NMAX][NMAX], float L[NMAX][NMAX], float U[NMAX][NMAX
 
         for(int i=j+1;i<n;i++){
             float sum=0.0;
-            for(int k=0;k<j-2;k++){
+            for(int k=0;k<j-1;k++){
                 sum+=(L[i][k]*U[k][j]);
             }
             L[i][j]=(A[i][j]-sum)/U[j][j];
