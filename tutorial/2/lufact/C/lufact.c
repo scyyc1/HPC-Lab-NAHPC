@@ -13,7 +13,7 @@ void matgen(int n, float a[NMAX][NMAX], float b[NMAX]);
 void identificate(int n, float M[NMAX][NMAX]);
 void setZero(int n, float M[NMAX][NMAX]);
 void LUfact(int n, float A[NMAX][NMAX], float L[NMAX][NMAX], float U[NMAX][NMAX]);
-void getX(int n, float L[NMAX][NMAX], float U[NMAX][NMAX], float X[NMAX])
+void getX(int n, float L[NMAX][NMAX], float U[NMAX][NMAX], float X[NMAX], float b[NMAX]);
 
 
 void main(void)
@@ -277,7 +277,7 @@ void getX(int n, float L[NMAX][NMAX], float U[NMAX][NMAX], float X[NMAX], float 
 
     for(int i=N-1;i>=0;i--){
       float sum=0.0;
-      for(int j=i+1;j<N;j++){
+      for(int j=i+1;j<n;j++){
         sum+=(U[i][j]*X[j]);
       }
       X[i]=(mid[i]-sum)/U[i][i];
