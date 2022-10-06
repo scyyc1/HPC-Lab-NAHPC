@@ -13,6 +13,7 @@ void matgen(int n, float a[NMAX][NMAX], float b[NMAX]);
 void identificate(int n, float M[NMAX][NMAX]);
 void setZero(int n, float M[NMAX][NMAX]);
 void LUfact(int n, float A[NMAX][NMAX], float L[NMAX][NMAX], float U[NMAX][NMAX]);
+void getX(int n, float L[NMAX][NMAX], float U[NMAX][NMAX], float X[NMAX])
 
 
 void main(void)
@@ -52,6 +53,7 @@ void main(void)
   // ---------------------------------------------------my implementation-----------------------------
   identificate(n, l);
   LUfact(n, a, l, u);
+  getX(n,l,u,x,b);
   // ---------------------------------------------------my implementation-----------------------------
 
   printf("\nl\n\n");
@@ -247,7 +249,7 @@ void LUfact(int n, float  A[NMAX][NMAX], float L[NMAX][NMAX], float U[NMAX][NMAX
     for(int j=0;j<n;j++){
         for(int i=0;i<=j;i++){
             float sum=0.0;
-            for(int k=0;k<=i-1;k++){
+            for(int k=0;k<i;k++){
                 sum+=(L[i][k]*U[k][j]);
             }
             U[i][j]=A[i][j]-sum;
@@ -255,10 +257,29 @@ void LUfact(int n, float  A[NMAX][NMAX], float L[NMAX][NMAX], float U[NMAX][NMAX
 
         for(int i=j+1;i<n;i++){
             float sum=0.0;
-            for(int k=0;k<=j-1;k++){
+            for(int k=0;k<j;k++){
                 sum+=(L[i][k]*U[k][j]);
             }
             L[i][j]=(A[i][j]-sum)/U[j][j];
         }
+    }
+}
+
+void getX(int n, float L[NMAX][NMAX], float U[NMAX][NMAX], float X[NMAX], float b[NMAX]) {
+    float mid[NMAX];
+    for(int i=0;i<n;i++){
+      float sum=0.0;
+      for(int j=0;j<i;j++){
+        sum+=(L[i][j]*mid[j]);
+      }
+      mid[i]=(b[i]-sum)/L[i][i];
+    }
+
+    for(int i=N-1;i>=0;i--){
+      float sum=0.0;
+      for(int j=i+1;j<N;j++){
+        sum+=(U[i][j]*X[j]);
+      }
+      X[i]=(mid[i]-sum)/U[i][i];
     }
 }
