@@ -247,16 +247,15 @@ void LUfact(int n, float  A[NMAX][NMAX], float L[NMAX][NMAX], float U[NMAX][NMAX
     for(int j=0;j<n;j++){
         for(int i=0;i<=j;i++){
             float sum=0.0;
-            for(int k=0;k<i-1;k++){
+            for(int k=0;k<=i-1;k++){
                 sum+=(L[i][k]*U[k][j]);
-                if(i == 1 && j==1) printf("%f\n", sum);
             }
             U[i][j]=A[i][j]-sum;
         }
 
         for(int i=j+1;i<n;i++){
             float sum=0.0;
-            for(int k=0;k<j-1;k++){
+            for(int k=0;k<=j-1;k++){
                 sum+=(L[i][k]*U[k][j]);
             }
             L[i][j]=(A[i][j]-sum)/U[j][j];
