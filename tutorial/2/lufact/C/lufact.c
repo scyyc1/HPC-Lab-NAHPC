@@ -74,10 +74,10 @@ void main(void)
   printf("\nNeed to forward and back substitution to solve Ax=b\n");
   printf("Currently setting x=b\n");
 
-  for (i=0; i < n; i++)
-  {
-    x[i] = b[i];
-  }
+  // for (i=0; i < n; i++)
+  // {
+  //   x[i] = b[i];
+  // }
 
   printf("\nx\n\n");
   vecprint(n, x);
